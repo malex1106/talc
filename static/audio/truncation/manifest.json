@@ -5,7 +5,9 @@
     "Isotropic / 25% masked",
     "Isotropic / 50% masked",
     "TALC / 25% masked",
-    "TALC / 50% masked"
+    "TALC / 50% masked",
+    "Stable Audio Open / 25% masked",
+    "Stable Audio Open / 50% masked"
   ],
   "examples": [
     {
@@ -21,7 +23,9 @@
         "Isotropic / 25% masked": "truncation/isotropic_25_masked/604303.mp3",
         "Isotropic / 50% masked": "truncation/isotropic_50_masked/604303.mp3",
         "TALC / 25% masked": "truncation/talc_25_masked/604303.mp3",
-        "TALC / 50% masked": "truncation/talc_50_masked/604303.mp3"
+        "TALC / 50% masked": "truncation/talc_50_masked/604303.mp3",
+        "Stable Audio Open / 25% masked": "truncation/stable_audio_open_25_masked/604303.mp3",
+        "Stable Audio Open / 50% masked": "truncation/stable_audio_open_50_masked/604303.mp3"
       },
       "sample_rates": {
         "CNN-AE (baseline) / 25% masked": 44100,
@@ -29,7 +33,9 @@
         "Isotropic / 25% masked": 44100,
         "Isotropic / 50% masked": 44100,
         "TALC / 25% masked": 44100,
-        "TALC / 50% masked": 44100
+        "TALC / 50% masked": 44100,
+        "Stable Audio Open / 25% masked": 44100,
+        "Stable Audio Open / 50% masked": 44100
       }
     },
     {
@@ -45,7 +51,9 @@
         "Isotropic / 25% masked": "truncation/isotropic_25_masked/318076.mp3",
         "Isotropic / 50% masked": "truncation/isotropic_50_masked/318076.mp3",
         "TALC / 25% masked": "truncation/talc_25_masked/318076.mp3",
-        "TALC / 50% masked": "truncation/talc_50_masked/318076.mp3"
+        "TALC / 50% masked": "truncation/talc_50_masked/318076.mp3",
+        "Stable Audio Open / 25% masked": "truncation/stable_audio_open_25_masked/318076.mp3",
+        "Stable Audio Open / 50% masked": "truncation/stable_audio_open_50_masked/318076.mp3"
       },
       "sample_rates": {
         "CNN-AE (baseline) / 25% masked": 44100,
@@ -53,7 +61,9 @@
         "Isotropic / 25% masked": 44100,
         "Isotropic / 50% masked": 44100,
         "TALC / 25% masked": 44100,
-        "TALC / 50% masked": 44100
+        "TALC / 50% masked": 44100,
+        "Stable Audio Open / 25% masked": 44100,
+        "Stable Audio Open / 50% masked": 44100
       }
     }
   ]

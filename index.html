@@ -8,7 +8,7 @@
   <!-- TODO(1/6) — metadata. Fill PAPER_TITLE / authors / description once  -->
   <!-- ==================================================================== -->
   <meta name="title" content="Topology-Aware Latent Corruption: Can Noise Order Audio Autoencoder Latents?">
-  <meta name="description" content="This paper proposes \textbf{Topology-Aware Latent Corruption (TALC)}, which imposes an ordering through the corruption process itself, scaling the noise level per channel so that low-index channels carry important content at high reliability while high-index channels carry less important detail.">
+  <meta name="description" content="BRIEF_DESCRIPTION_OF_THE_CONTRIBUTION">
   <meta name="keywords" content="audio autoencoder, structure, latent corruption, latent topology, ordering">
   <meta name="author" content="Alexander Fichtinger, Jan Schlüter, Gerhard Widmer">
   <meta name="robots" content="index, follow">
@@ -18,7 +18,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Institute of Computational Perception, Johannes Kepler University Linz, Austria">
   <meta property="og:title" content="Topology-Aware Latent Corruption: Can Noise Order Audio Autoencoder Latents?">
-  <meta property="og:description" content="This paper proposes \textbf{Topology-Aware Latent Corruption (TALC)}, which imposes an ordering through the corruption process itself, scaling the noise level per channel so that low-index channels carry important content at high reliability while high-index channels carry less important detail.">
+  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_THE_CONTRIBUTION">
   <meta property="og:url" content="https://YOUR_GITHUB_USER.github.io/YOUR_REPO">
   <!-- A 1200x630 png; the architecture figure on a white background works well. -->
   <meta property="og:image" content="https://YOUR_GITHUB_USER.github.io/YOUR_REPO/static/images/social_preview.png">
@@ -30,7 +30,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Topology-Aware Latent Corruption: Can Noise Order Audio Autoencoder Latents?">
-  <meta name="twitter:description" content="This paper proposes \textbf{Topology-Aware Latent Corruption (TALC)}, which imposes an ordering through the corruption process itself, scaling the noise level per channel so that low-index channels carry important content at high reliability while high-index channels carry less important detail.">
+  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_THE_CONTRIBUTION">
   <meta name="twitter:image" content="https://YOUR_GITHUB_USER.github.io/YOUR_REPO/static/images/social_preview.png">
 
   <!-- Academic / Google Scholar. One citation_author per author, "Last, First". -->
@@ -85,7 +85,7 @@
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "Topology-Aware Latent Corruption: Can Noise Order Audio Autoencoder Latents?",
-    "description": "This paper proposes \textbf{Topology-Aware Latent Corruption (TALC)}, which imposes an ordering through the corruption process itself, scaling the noise level per channel so that low-index channels carry important content at high reliability while high-index channels carry less important detail.",
+    "description": "BRIEF_DESCRIPTION_OF_THE_CONTRIBUTION",
     "author": [
       { "@type": "Person", "name": "Alexander Fichtinger" },
       { "@type": "Person", "name": "Jan Schlüter" },
@@ -421,11 +421,16 @@
       <details class="trunc-example" open>
         <summary>Example 2</summary>
         <div class="trunc-body">
+          <div class="trunc-original">
+            <span class="trunc-original-label">Original</span>
+            <audio controls preload="none" src="static/audio/original/604303.mp3"></audio>
+          </div>
           <div class="audio-table-container">
             <table class="table is-fullwidth trunc-table">
               <thead>
             <tr>
               <th></th>
+              <th>no masking<small>64 of 64 ch &middot; 64&times;</small></th>
               <th>25% masked<small>48 of 64 ch &middot; 85&times;</small></th>
               <th>50% masked<small>32 of 64 ch &middot; 128&times;</small></th>
             </tr>
@@ -433,32 +438,46 @@
               <tbody>
             <tr>
               <th>CNN-AE (baseline)</th>
+              <td><audio controls preload="none" src="static/audio/cnn-ae_baseline/604303.mp3"></audio></td>
               <td><audio controls preload="none" src="static/audio/truncation/cnn-ae_baseline_25_masked/604303.mp3"></audio></td>
               <td><audio controls preload="none" src="static/audio/truncation/cnn-ae_baseline_50_masked/604303.mp3"></audio></td>
             </tr>
             <tr>
               <th>Isotropic</th>
+              <td><audio controls preload="none" src="static/audio/isotropic/604303.mp3"></audio></td>
               <td><audio controls preload="none" src="static/audio/truncation/isotropic_25_masked/604303.mp3"></audio></td>
               <td><audio controls preload="none" src="static/audio/truncation/isotropic_50_masked/604303.mp3"></audio></td>
             </tr>
             <tr>
               <th>TALC</th>
+              <td><audio controls preload="none" src="static/audio/talc/604303.mp3"></audio></td>
               <td><audio controls preload="none" src="static/audio/truncation/talc_25_masked/604303.mp3"></audio></td>
               <td><audio controls preload="none" src="static/audio/truncation/talc_50_masked/604303.mp3"></audio></td>
+            </tr>
+            <tr>
+              <th>Stable Audio Open</th>
+              <td><audio controls preload="none" src="static/audio/sao/604303.mp3"></audio></td>
+              <td><audio controls preload="none" src="static/audio/truncation/stable_audio_open_25_masked/604303.mp3"></audio></td>
+              <td><audio controls preload="none" src="static/audio/truncation/stable_audio_open_50_masked/604303.mp3"></audio></td>
             </tr>
               </tbody>
             </table>
           </div>
         </div>
       </details>
-      <details class="trunc-example" open>
+      <details class="trunc-example">
         <summary>Example 9</summary>
         <div class="trunc-body">
+          <div class="trunc-original">
+            <span class="trunc-original-label">Original</span>
+            <audio controls preload="none" src="static/audio/original/318076.mp3"></audio>
+          </div>
           <div class="audio-table-container">
             <table class="table is-fullwidth trunc-table">
               <thead>
             <tr>
               <th></th>
+              <th>no masking<small>64 of 64 ch &middot; 64&times;</small></th>
               <th>25% masked<small>48 of 64 ch &middot; 85&times;</small></th>
               <th>50% masked<small>32 of 64 ch &middot; 128&times;</small></th>
             </tr>
@@ -466,18 +485,27 @@
               <tbody>
             <tr>
               <th>CNN-AE (baseline)</th>
+              <td><audio controls preload="none" src="static/audio/cnn-ae_baseline/318076.mp3"></audio></td>
               <td><audio controls preload="none" src="static/audio/truncation/cnn-ae_baseline_25_masked/318076.mp3"></audio></td>
               <td><audio controls preload="none" src="static/audio/truncation/cnn-ae_baseline_50_masked/318076.mp3"></audio></td>
             </tr>
             <tr>
               <th>Isotropic</th>
+              <td><audio controls preload="none" src="static/audio/isotropic/318076.mp3"></audio></td>
               <td><audio controls preload="none" src="static/audio/truncation/isotropic_25_masked/318076.mp3"></audio></td>
               <td><audio controls preload="none" src="static/audio/truncation/isotropic_50_masked/318076.mp3"></audio></td>
             </tr>
             <tr>
               <th>TALC</th>
+              <td><audio controls preload="none" src="static/audio/talc/318076.mp3"></audio></td>
               <td><audio controls preload="none" src="static/audio/truncation/talc_25_masked/318076.mp3"></audio></td>
               <td><audio controls preload="none" src="static/audio/truncation/talc_50_masked/318076.mp3"></audio></td>
+            </tr>
+            <tr>
+              <th>Stable Audio Open</th>
+              <td><audio controls preload="none" src="static/audio/sao/318076.mp3"></audio></td>
+              <td><audio controls preload="none" src="static/audio/truncation/stable_audio_open_25_masked/318076.mp3"></audio></td>
+              <td><audio controls preload="none" src="static/audio/truncation/stable_audio_open_50_masked/318076.mp3"></audio></td>
             </tr>
               </tbody>
             </table>

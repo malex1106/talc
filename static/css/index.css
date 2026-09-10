@@ -1062,3 +1062,27 @@ a:focus {
 .trunc-findings strong {
   color: var(--text-primary);
 }
+
+
+/* Reference player above each truncation grid */
+.trunc-original {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 0 0.9rem 0;
+  margin-bottom: 0.9rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.trunc-original-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.trunc-original audio {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 22rem;
+  height: 2.5rem;
+}
