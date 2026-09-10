@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ==================================================================== -->
+  <!-- TODO(1/6) — metadata. Fill PAPER_TITLE / authors / description once  -->
+  <!-- ==================================================================== -->
+  <meta name="title" content="Topology-Aware Latent Corruption: Can Noise Order Audio Autoencoder Latents?">
+  <meta name="description" content="BRIEF_DESCRIPTION_OF_THE_CONTRIBUTION">
+  <meta name="keywords" content="audio autoencoder, structure, latent corruption, latent topology, ordering">
+  <meta name="author" content="Alexander Fichtinger, Jan Schlüter, Gerhard Widmer">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Institute of Computational Perception, Johannes Kepler University Linz, Austria">
+  <meta property="og:title" content="Topology-Aware Latent Corruption: Can Noise Order Audio Autoencoder Latents?">
+  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_THE_CONTRIBUTION">
+  <meta property="og:url" content="https://YOUR_GITHUB_USER.github.io/YOUR_REPO">
+  <!-- A 1200x630 png; the architecture figure on a white background works well. -->
+  <meta property="og:image" content="https://YOUR_GITHUB_USER.github.io/YOUR_REPO/static/images/social_preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Topology-Aware Latent Corruption: Can Noise Order Audio Autoencoder Latents?">
+  <meta property="article:section" content="Research">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Topology-Aware Latent Corruption: Can Noise Order Audio Autoencoder Latents?">
+  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_THE_CONTRIBUTION">
+  <meta name="twitter:image" content="https://YOUR_GITHUB_USER.github.io/YOUR_REPO/static/images/social_preview.png">
+
+  <!-- Academic / Google Scholar. One citation_author per author, "Last, First". -->
+  <meta name="citation_title" content="Topology-Aware Latent Corruption: Can Noise Order Audio Autoencoder Latents?">
+  <meta name="citation_author" content="Fichtinger, Alexander">
+  <meta name="citation_author" content="Schlüter, Jan">
+  <meta name="citation_author" content="Widmer, Gerhard">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="CONFERENCE_NAME">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/ARXIV_ID.pdf">
+
+  <meta name="theme-color" content="#2563eb">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <title>TALC Project Page</title>
+
+  <!--<link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">-->
+
+  <!-- Critical CSS -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <!-- Non-critical CSS -->
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- KaTeX: renders LaTeX in captions and body text. Write math as $...$ or
+       \(...\) inline, $$...$$ or \[...\] displayed. Version is pinned so a CDN
+       update cannot silently change how the page renders. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  <script defer src="static/js/audio.js"></script>
+  <script defer src="static/js/math.js"></script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Topology-Aware Latent Corruption: Can Noise Order Audio Autoencoder Latents?",
+    "description": "BRIEF_DESCRIPTION_OF_THE_CONTRIBUTION",
+    "author": [
+      { "@type": "Person", "name": "Alexander Fichtinger" },
+      { "@type": "Person", "name": "Jan Schlüter" },
+      { "@type": "Person", "name": "Gerhard Widmer" }
+    ],
+    "datePublished": "2026",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Institute of Computational Perception, Johannes Kepler University Linz, Austria"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+
+  <!-- ==================================================================== -->
+  <!-- Title, authors, links                                                -->
+  <!-- ==================================================================== -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+
+            <h1 class="title is-1 publication-title">
+              Topology-Aware Latent Corruption: <br>
+              Can Noise Order Audio Autoencoder Latents?
+            </h1>
+
+            <!-- Affiliations are numbered; an author with more than one lists
+                 them comma-separated, e.g. <sup>1,2</sup>. Keep the numbering in
+                 sync with the affiliation list below. The equal-contribution
+                 marker goes in the same <sup>, after the numbers. -->
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://www.jku.at/en/institute-of-computational-perception/about-us/people/alexander-fichtinger/" target="_blank">Alexander Fichtinger</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.jku.at/en/institute-of-computational-perception/about-us/people/jan-schlueter/" target="_blank">Jan Schlüter</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.jku.at/en/institute-of-computational-perception/about-us/people/gerhard-widmer/" target="_blank">Gerhard Widmer</a><sup>1,2</sup></span>
+            </div>
+
+            <div class="is-size-6 publication-affiliations">
+              <span class="affiliation-block"><sup>1</sup>Institute of Computational Perception, Johannes Kepler University Linz, Austria</span>
+              <span class="affiliation-block"><sup>2</sup>LIT Artifical Intelligence Lab, Linz, Austria</span>
+            </div>
+
+            <!--
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">CONFERENCE_NAME 2026</span>
+            </div>
+            -->
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+
+                <!-- Paper PDF -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/ARXIV_ID.pdf" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+
+                <!-- arXiv -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/ARXIV_ID" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+                <!-- Code -->
+                <span class="link-block">
+                  <a href="https://github.com/YOUR_GITHUB_USER/YOUR_CODE_REPO" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================== -->
+  <!-- Abstract                                                             -->
+  <!-- ==================================================================== -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Continuous audio autoencoders are increasingly used as shared latent spaces for reconstruction, generation, and music information retrieval (MIR). However, most continuous bottlenecks remain topologically unstructured: every latent channel is treated identically, so no channel acquires a defined role. 
+              This paper proposes <b>Topology-Aware Latent Corruption (TALC)</b>, which imposes an ordering through the corruption process itself, scaling the noise level per channel so that low-index channels carry important content at high reliability while high-index channels carry less important detail. In our experiments, isotropic latent corruption improves reconstruction substantially over an uncorrupted baseline, and TALC slightly outperforms the best isotropic model on SI-SDR while reducing latent correlation. Under truncation, its error curve stays flatter, so TALC retains most of its reconstruction quality from a subset of channels. Model weights are available under [this link].
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================== -->
+  <!-- Architecture                                                         -->
+  <!-- ==================================================================== -->
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <h2 class="title is-3 has-text-centered">Architecture</h2>
+
+          <figure class="architecture-figure">
+            <img src="static/images/architecture.png"
+                 alt="Model architecture: encoder, latent bottleneck and decoder."
+                 loading="lazy">
+            <figcaption class="has-text-justified">
+              TALC: The encoder maps complex spectrograms to a latent $\mathbf{z}_0$, normalized channel-wise by LayerNorm into $\tilde{\mathbf{z}}_0$. TALC samples a global noise scalar $n$ and scales it by a gamma-growth schedule $w_c$ into channel-wise levels $n_c$, so that low-index channels are corrupted least. The decoder reconstructs from the resulting latent $\mathbf{z}_{n_c}$.
+            </figcaption>
+          </figure>
+
+          <div class="content has-text-justified">
+            <p>
+              Optional extra paragraph: training objective, latent rate, and any
+              detail a reader needs before listening to the examples below.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================== -->
+  <!-- Audio examples                                                       -->
+  <!-- ==================================================================== -->
+  <section class="section hero is-light" id="audio-examples">
+    <div class="container is-fluid audio-container">
+      <h2 class="title is-3 has-text-centered">Audio Examples</h2>
+      <div class="content has-text-centered audio-intro">
+        <p>
+          Each row is one excerpt; each column is one system. 
+          For a fair comparison, we converted the original samples and the SAO reconstructions to mono. 
+          Headphones recommended.
+        </p>
+      </div>
+
+      <!-- AUDIO_TABLE_START -->
+      <div class="audio-table-container">
+        <table class="table is-fullwidth is-hoverable audio-table">
+          <thead>
+            <tr>
+              <th></th>
+          <th>Original</th>
+          <th>CNN-AE (baseline)</th>
+          <th>TALC</th>
+          <th>Isotropic</th>
+          <th>SAO</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <td class="example-name">Example 1</td>
+          <td><audio controls preload="none" src="static/audio/original/604302.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/cnn-ae_baseline/604302.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/talc/604302.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/isotropic/604302.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/sao/604302.mp3"></audio></td>
+        </tr>
+        <tr>
+          <td class="example-name">Example 2</td>
+          <td><audio controls preload="none" src="static/audio/original/604303.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/cnn-ae_baseline/604303.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/talc/604303.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/isotropic/604303.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/sao/604303.mp3"></audio></td>
+        </tr>
+        <tr>
+          <td class="example-name">Example 3</td>
+          <td><audio controls preload="none" src="static/audio/original/1127403.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/cnn-ae_baseline/1127403.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/talc/1127403.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/isotropic/1127403.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/sao/1127403.mp3"></audio></td>
+        </tr>
+        <tr>
+          <td class="example-name">Example 4</td>
+          <td><audio controls preload="none" src="static/audio/original/46506.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/cnn-ae_baseline/46506.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/talc/46506.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/isotropic/46506.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/sao/46506.mp3"></audio></td>
+        </tr>
+        <tr>
+          <td class="example-name">Example 5</td>
+          <td><audio controls preload="none" src="static/audio/original/244934.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/cnn-ae_baseline/244934.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/talc/244934.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/isotropic/244934.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/sao/244934.mp3"></audio></td>
+        </tr>
+        <tr>
+          <td class="example-name">Example 6</td>
+          <td><audio controls preload="none" src="static/audio/original/737334.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/cnn-ae_baseline/737334.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/talc/737334.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/isotropic/737334.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/sao/737334.mp3"></audio></td>
+        </tr>
+        <tr>
+          <td class="example-name">Example 7</td>
+          <td><audio controls preload="none" src="static/audio/original/792434.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/cnn-ae_baseline/792434.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/talc/792434.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/isotropic/792434.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/sao/792434.mp3"></audio></td>
+        </tr>
+        <tr>
+          <td class="example-name">Example 8</td>
+          <td><audio controls preload="none" src="static/audio/original/41971.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/cnn-ae_baseline/41971.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/talc/41971.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/isotropic/41971.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/sao/41971.mp3"></audio></td>
+        </tr>
+        <tr>
+          <td class="example-name">Example 9</td>
+          <td><audio controls preload="none" src="static/audio/original/318076.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/cnn-ae_baseline/318076.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/talc/318076.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/isotropic/318076.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/sao/318076.mp3"></audio></td>
+        </tr>
+        <tr>
+          <td class="example-name">Example 10</td>
+          <td><audio controls preload="none" src="static/audio/original/998076.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/cnn-ae_baseline/998076.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/talc/998076.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/isotropic/998076.mp3"></audio></td>
+          <td><audio controls preload="none" src="static/audio/sao/998076.mp3"></audio></td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- AUDIO_TABLE_END -->
+
+    </div>
+  </section>
+
+  <!-- ==================================================================== -->
+  <!-- Latent truncation                                                    -->
+  <!-- ==================================================================== -->
+  <section class="section hero" id="latent-truncation">
+    <div class="container is-fluid audio-container">
+      <h2 class="title is-3 has-text-centered">Latent Truncation</h2>
+      <div class="content audio-intro trunc-intro">
+        <p>
+          To show that an latent ordering exists, we are truncating the latent 
+          representation of each model, basically removing information of the audio input.
+          The latent is split into groups of channels, ordered from the
+          highest-noise group to the lowest. Truncation zeroes the highest-noise
+          groups before decoding, so <em>x% masked</em> means that fraction of the
+          latent was discarded and the decoder had to reconstruct the signal
+          without it. A model whose information is spread evenly across channels
+          loses everything at once; one that concentrates the signal in its
+          low-noise channels degrades gradually. Our results show that TALC's 
+          error curve stays flatter, so TALC retains most of its reconstruction 
+          quality from a subset of channels. Here, we additionally provide
+          audio examples of the truncated outputs to verify qualitatively.
+        </p>
+        <figure>
+            <img src="static/images/truncation_analysis.png"
+                 alt="Model architecture: encoder, latent bottleneck and decoder."
+                 loading="lazy"
+                 width="450">
+            <figcaption class="has-text-justified">
+              Truncation Analysis: Negative SI-SDR as a function of percentage of top-ranked channels retained.
+            </figcaption>
+        </figure>
+        <p>
+          Each block below is one excerpt. Read across a row to hear a single
+          model degrade; read down a column to compare models at the same
+          truncation level. Column headers give the channels the decoder still 
+          receives and the resulting <em>dimensional</em> compression against the 
+          input waveform: the full latent carries 64 values per 4096 audio samples 
+          (64&times;), and masking half of the channels doubles that to 128&times;.
+        </p>
+      </div>
+
+      <!-- Qualitative findings. Hand-written prose — the generator only
+           rewrites between the TRUNCATION_START / TRUNCATION_END markers
+           below, so nothing here is overwritten when the audio is re-rendered. -->
+      <div class="trunc-findings content">
+        <h3 class="title is-5">What to listen for</h3>
+        <p>
+          <strong>CNN-AE (baseline).</strong> Truncation is catastrophic. Trained
+          without latent corruption, the baseline distributes information across
+          all channels with no ordering, so removing any of them destroys the
+          representation rather than coarsening it. The decoder no longer produces
+          anything recognisable as music &mdash; the output is noise, not a
+          degraded version of the input.
+        </p>
+        <p>
+          <strong>Isotropic.</strong> Training with uniform latent noise keeps the
+          signal intelligible under truncation: the music survives, and the
+          content of the excerpt is still clearly identifiable. It is, however,
+          audibly damaged, with artifacts that grow as more channels are removed.
+        </p>
+        <p>
+          <strong>TALC.</strong> The topology-aware noise schedule concentrates
+          information in the low-noise channels, which are exactly the ones
+          truncation keeps. At the same truncation level TALC is consistently
+          cleaner than the isotropic model &mdash; fewer artifacts, and a result
+          that sounds more like real audio rather than a reconstruction fighting
+          to stay coherent.
+        </p>
+      </div>
+
+      <!-- TRUNCATION_START -->
+      <details class="trunc-example" open>
+        <summary>Example 2</summary>
+        <div class="trunc-body">
+          <div class="audio-table-container">
+            <table class="table is-fullwidth trunc-table">
+              <thead>
+            <tr>
+              <th></th>
+              <th>25% masked<small>48 of 64 ch &middot; 85&times;</small></th>
+              <th>50% masked<small>32 of 64 ch &middot; 128&times;</small></th>
+            </tr>
+              </thead>
+              <tbody>
+            <tr>
+              <th>CNN-AE (baseline)</th>
+              <td><audio controls preload="none" src="static/audio/truncation/cnn-ae_baseline_25_masked/604303.mp3"></audio></td>
+              <td><audio controls preload="none" src="static/audio/truncation/cnn-ae_baseline_50_masked/604303.mp3"></audio></td>
+            </tr>
+            <tr>
+              <th>Isotropic</th>
+              <td><audio controls preload="none" src="static/audio/truncation/isotropic_25_masked/604303.mp3"></audio></td>
+              <td><audio controls preload="none" src="static/audio/truncation/isotropic_50_masked/604303.mp3"></audio></td>
+            </tr>
+            <tr>
+              <th>TALC</th>
+              <td><audio controls preload="none" src="static/audio/truncation/talc_25_masked/604303.mp3"></audio></td>
+              <td><audio controls preload="none" src="static/audio/truncation/talc_50_masked/604303.mp3"></audio></td>
+            </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      <details class="trunc-example" open>
+        <summary>Example 9</summary>
+        <div class="trunc-body">
+          <div class="audio-table-container">
+            <table class="table is-fullwidth trunc-table">
+              <thead>
+            <tr>
+              <th></th>
+              <th>25% masked<small>48 of 64 ch &middot; 85&times;</small></th>
+              <th>50% masked<small>32 of 64 ch &middot; 128&times;</small></th>
+            </tr>
+              </thead>
+              <tbody>
+            <tr>
+              <th>CNN-AE (baseline)</th>
+              <td><audio controls preload="none" src="static/audio/truncation/cnn-ae_baseline_25_masked/318076.mp3"></audio></td>
+              <td><audio controls preload="none" src="static/audio/truncation/cnn-ae_baseline_50_masked/318076.mp3"></audio></td>
+            </tr>
+            <tr>
+              <th>Isotropic</th>
+              <td><audio controls preload="none" src="static/audio/truncation/isotropic_25_masked/318076.mp3"></audio></td>
+              <td><audio controls preload="none" src="static/audio/truncation/isotropic_50_masked/318076.mp3"></audio></td>
+            </tr>
+            <tr>
+              <th>TALC</th>
+              <td><audio controls preload="none" src="static/audio/truncation/talc_25_masked/318076.mp3"></audio></td>
+              <td><audio controls preload="none" src="static/audio/truncation/talc_50_masked/318076.mp3"></audio></td>
+            </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+      <!-- TRUNCATION_END -->
+
+    </div>
+  </section>
+
+  <!-- ==================================================================== -->
+  <!-- BibTeX - update once the paper has a citation                        -->
+  <!-- ==================================================================== -->
+  <!--
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@inproceedings{CITATION_KEY,
+  title     = {PAPER_TITLE},
+  author    = {First Author and Second Author and Third Author},
+  booktitle = {CONFERENCE_NAME},
+  year      = {2026},
+  url       = {https://YOUR_GITHUB_USER.github.io/YOUR_REPO}
+}</code></pre>
+    </div>
+  </section>
+  -->
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

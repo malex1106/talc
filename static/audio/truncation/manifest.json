@@ -1,0 +1,60 @@
+{
+  "systems": [
+    "CNN-AE (baseline) / 25% masked",
+    "CNN-AE (baseline) / 50% masked",
+    "Isotropic / 25% masked",
+    "Isotropic / 50% masked",
+    "TALC / 25% masked",
+    "TALC / 50% masked"
+  ],
+  "examples": [
+    {
+      "id": "604303",
+      "path": "03/604303.wav",
+      "title": "Example 2",
+      "note": "",
+      "start": 0.0,
+      "duration": 60.0,
+      "files": {
+        "CNN-AE (baseline) / 25% masked": "truncation/cnn-ae_baseline_25_masked/604303.mp3",
+        "CNN-AE (baseline) / 50% masked": "truncation/cnn-ae_baseline_50_masked/604303.mp3",
+        "Isotropic / 25% masked": "truncation/isotropic_25_masked/604303.mp3",
+        "Isotropic / 50% masked": "truncation/isotropic_50_masked/604303.mp3",
+        "TALC / 25% masked": "truncation/talc_25_masked/604303.mp3",
+        "TALC / 50% masked": "truncation/talc_50_masked/604303.mp3"
+      },
+      "sample_rates": {
+        "CNN-AE (baseline) / 25% masked": 44100,
+        "CNN-AE (baseline) / 50% masked": 44100,
+        "Isotropic / 25% masked": 44100,
+        "Isotropic / 50% masked": 44100,
+        "TALC / 25% masked": 44100,
+        "TALC / 50% masked": 44100
+      }
+    },
+    {
+      "id": "318076",
+      "path": "76/318076.wav",
+      "title": "Example 9",
+      "note": "",
+      "start": 0.0,
+      "duration": 60.0,
+      "files": {
+        "CNN-AE (baseline) / 25% masked": "truncation/cnn-ae_baseline_25_masked/318076.mp3",
+        "CNN-AE (baseline) / 50% masked": "truncation/cnn-ae_baseline_50_masked/318076.mp3",
+        "Isotropic / 25% masked": "truncation/isotropic_25_masked/318076.mp3",
+        "Isotropic / 50% masked": "truncation/isotropic_50_masked/318076.mp3",
+        "TALC / 25% masked": "truncation/talc_25_masked/318076.mp3",
+        "TALC / 50% masked": "truncation/talc_50_masked/318076.mp3"
+      },
+      "sample_rates": {
+        "CNN-AE (baseline) / 25% masked": 44100,
+        "CNN-AE (baseline) / 50% masked": 44100,
+        "Isotropic / 25% masked": 44100,
+        "Isotropic / 50% masked": 44100,
+        "TALC / 25% masked": 44100,
+        "TALC / 50% masked": 44100
+      }
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "systems": [
+    "Original",
+    "CNN-AE (baseline)",
+    "TALC",
+    "Isotropic",
+    "SAO"
+  ],
+  "examples": [
+    {
+      "id": "604302",
+      "path": "02/604302.wav",
+      "title": "Example 1",
+      "note": "",
+      "start": 0.0,
+      "duration": 60.0,
+      "files": {
+        "Original": "original/604302.mp3",
+        "CNN-AE (baseline)": "cnn-ae_baseline/604302.mp3",
+        "TALC": "talc/604302.mp3",
+        "Isotropic": "isotropic/604302.mp3",
+        "SAO": "sao/604302.mp3"
+      },
+      "sample_rates": {
+        "Original": 44100,
+        "CNN-AE (baseline)": 44100,
+        "TALC": 44100,
+        "Isotropic": 44100,
+        "SAO": 44100
+      }
+    },
+    {
+      "id": "604303",
+      "path": "03/604303.wav",
+      "title": "Example 2",
+      "note": "",
+      "start": 0.0,
+      "duration": 60.0,
+      "files": {
+        "Original": "original/604303.mp3",
+        "CNN-AE (baseline)": "cnn-ae_baseline/604303.mp3",
+        "TALC": "talc/604303.mp3",
+        "Isotropic": "isotropic/604303.mp3",
+        "SAO": "sao/604303.mp3"
+      },
+      "sample_rates": {
+        "Original": 44100,
+        "CNN-AE (baseline)": 44100,
+        "TALC": 44100,
+        "Isotropic": 44100,
+        "SAO": 44100
+      }
+    },
+    {
+      "id": "1127403",
+      "path": "03/1127403.wav",
+      "title": "Example 3",
+      "note": "",
+      "start": 0.0,
+      "duration": 60.0,
+      "files": {
+        "Original": "original/1127403.mp3",
+        "CNN-AE (baseline)": "cnn-ae_baseline/1127403.mp3",
+        "TALC": "talc/1127403.mp3",
+        "Isotropic": "isotropic/1127403.mp3",
+        "SAO": "sao/1127403.mp3"
+      },
+      "sample_rates": {
+        "Original": 44100,
+        "CNN-AE (baseline)": 44100,
+        "TALC": 44100,
+        "Isotropic": 44100,
+        "SAO": 44100
+      }
+    },
+    {
+      "id": "46506",
+      "path": "06/46506.wav",
+      "title": "Example 4",
+      "note": "",
+      "start": 0.0,
+      "duration": 60.0,
+      "files": {
+        "Original": "original/46506.mp3",
+        "CNN-AE (baseline)": "cnn-ae_baseline/46506.mp3",
+        "TALC": "talc/46506.mp3",
+        "Isotropic": "isotropic/46506.mp3",
+        "SAO": "sao/46506.mp3"
+      },
+      "sample_rates": {
+        "Original": 44100,
+        "CNN-AE (baseline)": 44100,
+        "TALC": 44100,
+        "Isotropic": 44100,
+        "SAO": 44100
+      }
+    },
+    {
+      "id": "244934",
+      "path": "34/244934.wav",
+      "title": "Example 5",
+      "note": "",
+      "start": 0.0,
+      "duration": 60.0,
+      "files": {
+        "Original": "original/244934.mp3",
+        "CNN-AE (baseline)": "cnn-ae_baseline/244934.mp3",
+        "TALC": "talc/244934.mp3",
+        "Isotropic": "isotropic/244934.mp3",
+        "SAO": "sao/244934.mp3"
+      },
+      "sample_rates": {
+        "Original": 44100,
+        "CNN-AE (baseline)": 44100,
+        "TALC": 44100,
+        "Isotropic": 44100,
+        "SAO": 44100
+      }
+    },
+    {
+      "id": "737334",
+      "path": "34/737334.wav",
+      "title": "Example 6",
+      "note": "",
+      "start": 0.0,
+      "duration": 60.0,
+      "files": {
+        "Original": "original/737334.mp3",
+        "CNN-AE (baseline)": "cnn-ae_baseline/737334.mp3",
+        "TALC": "talc/737334.mp3",
+        "Isotropic": "isotropic/737334.mp3",
+        "SAO": "sao/737334.mp3"
+      },
+      "sample_rates": {
+        "Original": 44100,
+        "CNN-AE (baseline)": 44100,
+        "TALC": 44100,
+        "Isotropic": 44100,
+        "SAO": 44100
+      }
+    },
+    {
+      "id": "792434",
+      "path": "34/792434.wav",
+      "title": "Example 7",
+      "note": "",
+      "start": 0.0,
+      "duration": 60.0,
+      "files": {
+        "Original": "original/792434.mp3",
+        "CNN-AE (baseline)": "cnn-ae_baseline/792434.mp3",
+        "TALC": "talc/792434.mp3",
+        "Isotropic": "isotropic/792434.mp3",
+        "SAO": "sao/792434.mp3"
+      },
+      "sample_rates": {
+        "Original": 44100,
+        "CNN-AE (baseline)": 44100,
+        "TALC": 44100,
+        "Isotropic": 44100,
+        "SAO": 44100
+      }
+    },
+    {
+      "id": "41971",
+      "path": "71/41971.wav",
+      "title": "Example 8",
+      "note": "",
+      "start": 0.0,
+      "duration": 60.0,
+      "files": {
+        "Original": "original/41971.mp3",
+        "CNN-AE (baseline)": "cnn-ae_baseline/41971.mp3",
+        "TALC": "talc/41971.mp3",
+        "Isotropic": "isotropic/41971.mp3",
+        "SAO": "sao/41971.mp3"
+      },
+      "sample_rates": {
+        "Original": 44100,
+        "CNN-AE (baseline)": 44100,
+        "TALC": 44100,
+        "Isotropic": 44100,
+        "SAO": 44100
+      }
+    },
+    {
+      "id": "318076",
+      "path": "76/318076.wav",
+      "title": "Example 9",
+      "note": "",
+      "start": 0.0,
+      "duration": 60.0,
+      "files": {
+        "Original": "original/318076.mp3",
+        "CNN-AE (baseline)": "cnn-ae_baseline/318076.mp3",
+        "TALC": "talc/318076.mp3",
+        "Isotropic": "isotropic/318076.mp3",
+        "SAO": "sao/318076.mp3"
+      },
+      "sample_rates": {
+        "Original": 44100,
+        "CNN-AE (baseline)": 44100,
+        "TALC": 44100,
+        "Isotropic": 44100,
+        "SAO": 44100
+      }
+    },
+    {
+      "id": "998076",
+      "path": "76/998076.wav",
+      "title": "Example 10",
+      "note": "",
+      "start": 0.0,
+      "duration": 60.0,
+      "files": {
+        "Original": "original/998076.mp3",
+        "CNN-AE (baseline)": "cnn-ae_baseline/998076.mp3",
+        "TALC": "talc/998076.mp3",
+        "Isotropic": "isotropic/998076.mp3",
+        "SAO": "sao/998076.mp3"
+      },
+      "sample_rates": {
+        "Original": 44100,
+        "CNN-AE (baseline)": 44100,
+        "TALC": 44100,
+        "Isotropic": 44100,
+        "SAO": 44100
+      }
+    }
+  ]
+}
