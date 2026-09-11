@@ -8,7 +8,7 @@
   <!-- TODO(1/6) — metadata. Fill PAPER_TITLE / authors / description once  -->
   <!-- ==================================================================== -->
   <meta name="title" content="Topology-Aware Latent Corruption: Can Noise Order Audio Autoencoder Latents?">
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_THE_CONTRIBUTION">
+  <meta name="description" content="Audio autoencoder utilizing topology-aware latent corruption to impose an ordering on the latent channels, improving SI-SDR and robustness when masking latent channels.">
   <meta name="keywords" content="audio autoencoder, structure, latent corruption, latent topology, ordering">
   <meta name="author" content="Alexander Fichtinger, Jan Schlüter, Gerhard Widmer">
   <meta name="robots" content="index, follow">
@@ -18,20 +18,21 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Institute of Computational Perception, Johannes Kepler University Linz, Austria">
   <meta property="og:title" content="Topology-Aware Latent Corruption: Can Noise Order Audio Autoencoder Latents?">
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_THE_CONTRIBUTION">
-  <meta property="og:url" content="https://YOUR_GITHUB_USER.github.io/YOUR_REPO">
+  <meta property="og:description" content="Audio autoencoder utilizing topology-aware latent corruption to impose an ordering on the latent channels, improving SI-SDR and robustness when masking latent channels.">
+  <meta property="og:url" content="https://github.com/malex1106/talc">
   <!-- A 1200x630 png; the architecture figure on a white background works well. -->
-  <meta property="og:image" content="https://YOUR_GITHUB_USER.github.io/YOUR_REPO/static/images/social_preview.png">
+  <!--<meta property="og:image" content="https://YOUR_GITHUB_USER.github.io/YOUR_REPO/static/images/social_preview.png">-->
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Topology-Aware Latent Corruption: Can Noise Order Audio Autoencoder Latents?">
   <meta property="article:section" content="Research">
 
-  <!-- Twitter -->
+  <!-- Twitter 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Topology-Aware Latent Corruption: Can Noise Order Audio Autoencoder Latents?">
   <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_THE_CONTRIBUTION">
   <meta name="twitter:image" content="https://YOUR_GITHUB_USER.github.io/YOUR_REPO/static/images/social_preview.png">
+  -->
 
   <!-- Academic / Google Scholar. One citation_author per author, "Last, First". -->
   <meta name="citation_title" content="Topology-Aware Latent Corruption: Can Noise Order Audio Autoencoder Latents?">
@@ -39,7 +40,7 @@
   <meta name="citation_author" content="Schlüter, Jan">
   <meta name="citation_author" content="Widmer, Gerhard">
   <meta name="citation_publication_date" content="2026">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
+  <meta name="citation_conference_title" content="ICASSP 2026">
   <meta name="citation_pdf_url" content="https://arxiv.org/pdf/ARXIV_ID.pdf">
 
   <meta name="theme-color" content="#2563eb">
@@ -85,7 +86,7 @@
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "Topology-Aware Latent Corruption: Can Noise Order Audio Autoencoder Latents?",
-    "description": "BRIEF_DESCRIPTION_OF_THE_CONTRIBUTION",
+    "description": "Audio autoencoder utilizing topology-aware latent corruption to impose an ordering on the latent channels, improving SI-SDR and robustness when masking latent channels.",
     "author": [
       { "@type": "Person", "name": "Alexander Fichtinger" },
       { "@type": "Person", "name": "Jan Schlüter" },
@@ -149,6 +150,7 @@
               <div class="publication-links">
 
                 <!-- Paper PDF -->
+                <!--
                 <span class="link-block">
                   <a href="https://arxiv.org/pdf/ARXIV_ID.pdf" target="_blank"
                      class="external-link button is-normal is-rounded is-dark">
@@ -156,8 +158,10 @@
                     <span>Paper</span>
                   </a>
                 </span>
+                -->
 
                 <!-- arXiv -->
+                <!--
                 <span class="link-block">
                   <a href="https://arxiv.org/abs/ARXIV_ID" target="_blank"
                      class="external-link button is-normal is-rounded is-dark">
@@ -165,10 +169,11 @@
                     <span>arXiv</span>
                   </a>
                 </span>
+                -->
 
                 <!-- Code -->
                 <span class="link-block">
-                  <a href="https://github.com/YOUR_GITHUB_USER/YOUR_CODE_REPO" target="_blank"
+                  <a href="https://github.com/malex1106/talc" target="_blank"
                      class="external-link button is-normal is-rounded is-dark">
                     <span class="icon"><i class="fab fa-github"></i></span>
                     <span>Code</span>
@@ -195,7 +200,7 @@
           <div class="content has-text-justified">
             <p>
               Continuous audio autoencoders are increasingly used as shared latent spaces for reconstruction, generation, and music information retrieval (MIR). However, most continuous bottlenecks remain topologically unstructured: every latent channel is treated identically, so no channel acquires a defined role. 
-              This paper proposes <b>Topology-Aware Latent Corruption (TALC)</b>, which imposes an ordering through the corruption process itself, scaling the noise level per channel so that low-index channels carry important content at high reliability while high-index channels carry less important detail. In our experiments, isotropic latent corruption improves reconstruction substantially over an uncorrupted baseline, and TALC slightly outperforms the best isotropic model on SI-SDR while reducing latent correlation. Under truncation, its error curve stays flatter, so TALC retains most of its reconstruction quality from a subset of channels. Model weights are available under [this link].
+              This paper proposes \textbf{Topology-Aware Latent Corruption (TALC)}, which imposes an ordering by corrupting latents during autoencoder training, scaling the noise level per channel so that low-index channels carry important content at high reliability while high-index channels carry less important detail. In our experiments, isotropic latent corruption improves reconstruction substantially over an uncorrupted baseline, and TALC slightly outperforms the best isotropic model on SI-SDR while reducing latent correlation. When masking latents, its error curve stays flatter, so TALC retains most of its reconstruction quality from a subset of channels. Model weights are available under <a href="https://github.com/malex1106/talc">github.com/malex1106/talc</a>.
             </p>
           </div>
         </div>
@@ -221,12 +226,11 @@
             </figcaption>
           </figure>
 
-          <div class="content has-text-justified">
+          <!--<div class="content has-text-justified">
             <p>
-              Optional extra paragraph: training objective, latent rate, and any
-              detail a reader needs before listening to the examples below.
+              Optional extra paragraph.
             </p>
-          </div>
+          </div>-->
         </div>
       </div>
     </div>
@@ -465,7 +469,7 @@
           </div>
         </div>
       </details>
-      <details class="trunc-example">
+      <details class="trunc-example" open>
         <summary>Example 9</summary>
         <div class="trunc-body">
           <div class="trunc-original">

@@ -1086,3 +1086,484 @@ a:focus {
   max-width: 22rem;
   height: 2.5rem;
 }
+
+
+/* ==========================================================================
+   Shared comparison player (static/js/audio.js)
+   ========================================================================== */
+
+/* Table cells: the native players are replaced by these buttons, which is also
+   what lets the tables shrink to fit narrow screens. */
+.ab-cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 2.25rem;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+}
+
+.ab-cell:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background: #f5f8ff;
+}
+
+.ab-cell:focus-visible,
+.ab-chip:focus-visible,
+.ab-btn:focus-visible,
+.ab-now:focus-visible,
+.ab-seek:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.ab-cell svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: currentColor;
+}
+
+.ab-cell .ab-i-pause,
+.ab-cell.is-playing .ab-i-play,
+.ab-play .ab-i-pause,
+.ab-play.is-playing .ab-i-play {
+  display: none;
+}
+
+.ab-cell.is-playing .ab-i-pause,
+.ab-play.is-playing .ab-i-pause {
+  display: block;
+}
+
+.ab-cell.is-active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+}
+
+.ab-cell.is-error,
+.ab-chip.is-error {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* Loading spinner, shown while a file downloads and decodes. */
+.ab-cell.is-loading::after,
+.ab-chip.is-loading::after {
+  content: '';
+  position: absolute;
+  right: 0.45rem;
+  top: 50%;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-top: -0.35rem;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: ab-spin 0.7s linear infinite;
+}
+
+.ab-chip.is-loading {
+  padding-right: 1.6rem;
+}
+
+@keyframes ab-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* With compact buttons in the cells, the tables no longer need the width the
+   native players demanded; let the headers wrap instead. */
+.audio-table.ab-enhanced {
+  min-width: 34rem;
+}
+
+.trunc-table.ab-enhanced {
+  min-width: 26rem;
+}
+
+.audio-table.ab-enhanced th,
+.trunc-table.ab-enhanced thead th {
+  white-space: normal;
+}
+
+.trunc-original .ab-cell {
+  flex: none;
+  width: 9rem;
+}
+
+/* The example currently loaded in the dock. */
+.audio-table tr.ab-active-group > td {
+  background: #f5f8ff;
+}
+
+.audio-table tr.ab-active-group .example-name {
+  background: #f5f8ff;
+  box-shadow: inset 3px 0 0 var(--primary-color);
+}
+
+.trunc-example.ab-active-group {
+  box-shadow: 0 0 0 2px var(--primary-color), 0 2px 8px rgba(10, 10, 10, 0.08);
+}
+
+/* --- dock ------------------------------------------------------------------ */
+
+.ab-dock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 60;
+  background: rgba(255, 255, 255, 0.97);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.08);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+/* Several dock parts set display, which would otherwise beat [hidden]. */
+.ab-dock[hidden],
+.ab-dock [hidden] {
+  display: none !important;
+}
+
+.ab-dock-inner {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0.6rem 1.5rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ab-top {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.9rem;
+}
+
+.ab-now {
+  flex: 1 1 14rem;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.ab-now-title {
+  font-weight: 600;
+}
+
+.ab-now-sep {
+  margin: 0 0.4rem;
+  color: var(--text-light);
+}
+
+.ab-now-label {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.ab-transport,
+.ab-loop,
+.ab-extra {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.ab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.4rem;
+  height: 2.4rem;
+  padding: 0 0.6rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+
+.ab-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.ab-btn svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: currentColor;
+}
+
+/* A set loop mark stays lit. */
+.ab-btn[aria-pressed="true"] {
+  background: #fff7ed;
+  border-color: #f59e0b;
+  color: #b45309;
+}
+
+.ab-play {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+}
+
+.ab-play:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+  color: #fff;
+}
+
+.ab-play svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.ab-time {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+}
+
+.ab-cur {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Seek bar: tall enough to hit on a phone, with the waveform behind it. */
+.ab-seek {
+  position: relative;
+  height: 3rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--background-secondary);
+  overflow: hidden;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.ab-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ab-progress,
+.ab-region,
+.ab-head,
+.ab-mark {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.ab-progress {
+  left: 0;
+  width: 0;
+  background: rgba(37, 99, 235, 0.16);
+}
+
+.ab-head {
+  left: 0;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--primary-color);
+}
+
+.ab-region {
+  background: rgba(245, 158, 11, 0.16);
+  border-left: 2px solid #f59e0b;
+  border-right: 2px solid #f59e0b;
+}
+
+.ab-mark {
+  width: 2px;
+  margin-left: -1px;
+  background: #f59e0b;
+}
+
+/* Switcher: one line, scrolling sideways when it does not fit. */
+.ab-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 2px;
+  scrollbar-width: thin;
+}
+
+.ab-chip-group {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.15rem 0.3rem 0.15rem 0.65rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--background-secondary);
+}
+
+.ab-chip-group-label {
+  margin-right: 0.2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.ab-chip {
+  position: relative;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  height: 1.9rem;
+  padding: 0 0.7rem 0 0.4rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.ab-chip:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.ab-chip.is-active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+}
+
+/* Keyboard number for the first nine systems. */
+.ab-key {
+  min-width: 1.05rem;
+  height: 1.05rem;
+  line-height: 1.05rem;
+  border-radius: 3px;
+  background: var(--background-accent);
+  color: var(--text-secondary);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.ab-chip.is-active .ab-key {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.ab-help {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.2rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.ab-help kbd {
+  padding: 0.05rem 0.35rem;
+  border: 1px solid var(--border-color);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.ab-msg {
+  font-size: 0.8rem;
+  color: #b91c1c;
+}
+
+/* Room for the dock at the end of the page, and the scroll-to-top button
+   lifted clear of it. --ab-dock-h is kept in sync by audio.js. */
+body.ab-dock-open {
+  padding-bottom: var(--ab-dock-h, 0px);
+}
+
+body.ab-dock-open .scroll-to-top {
+  bottom: calc(var(--ab-dock-h, 0px) + 1rem);
+}
+
+@media screen and (max-width: 700px) {
+  .ab-dock-inner {
+    padding: 0.5rem 0.75rem 0.6rem;
+    gap: 0.4rem;
+  }
+
+  /* Two lines: what is playing and the time, then every control. */
+  .ab-top {
+    justify-content: space-between;
+    gap: 0.4rem 0.5rem;
+  }
+
+  .ab-now {
+    order: 0;
+    flex: 1 1 calc(100% - 8rem);
+  }
+
+  .ab-time {
+    order: 1;
+    font-size: 0.8rem;
+  }
+
+  .ab-transport { order: 2; }
+  .ab-loop { order: 3; }
+  .ab-extra { order: 4; }
+
+  /* Keyboard shortcuts are no use on a touch screen, and the seek bar is a
+     quicker way back to the start than one more button on a narrow row. */
+  .ab-help-btn,
+  .ab-restart {
+    display: none;
+  }
+
+  .ab-seek {
+    height: 2.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ab-cell.is-loading::after,
+  .ab-chip.is-loading::after {
+    animation-duration: 2s;
+  }
+}
