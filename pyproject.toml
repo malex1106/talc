@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "talc"
+version = "0.1.0"
+description = "TALC: Toplogy-Aware Latent Corruption for high-fidelity audio compression"
+readme = "README.md"
+license = { text = "CC BY-NC 4.0" }
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.1",
+    "torchaudio>=2.1",
+    "soundfile",
+    "pyyaml",
+    "huggingface_hub",
+]
+
+[project.optional-dependencies]
+dev = ["numpy"]
+notebook = ["jupyter", "librosa"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["talc*"]
+
+[tool.setuptools.package-data]
+talc = ["configs/*.yaml"]

@@ -1,0 +1,43 @@
+# Default TALC architecture — 44.1 kHz, 1.196 s snippets, 1D temporal bottleneck.
+# Shared by all released TALC checkpoints.
+
+mixed_precision: true
+
+audio:
+  target_sr: 44100
+  data_channels: 2
+  snippet_samples: 52736
+  n_fft: 2048
+  hop_length: 512
+  alpha_rescale: 0.65
+  beta_rescale: 0.35
+  volume_norm_params: null
+
+autoencoder:
+  use_ema: true
+  ema_momentum: 0.9999
+  in_channels: 2
+  out_channels: 2
+  channels_per_block: [64, 128, 256, 512, 640]
+  residual_layers_per_encoder_block: 2
+  residual_layers_per_decoder_block: 3
+  attention_for_block: [0, 0, 1, 1, 1]
+  attention_residual_connections: true
+  attention_heads: 4
+
+  # Input spectrogram (after truncation to 2*hop_length): (2, 1024, 108)
+  # T = snippet_samples/hop + 1 = 104 STFT frames; with real padding (n_fft=2048): 104 + 4 = 108
+  # freq downsampling: 4*4*2*2*1 = 64x  -> latent freq: 1024/64 = 16
+  # time downsampling: 2*2*2*1*1 =  8x  -> latent time:  104/8  = 13
+  up_down_factors: [[4, 2], [4, 2], [2, 2], [2, 1], [1, 1]]
+  up_down_kernel_size: [[5, 3], [3, 3], [3, 3], [3, 3], [3, 3]]
+  dropout_p: 0.0
+  groupnorm_groups: 32
+  norm_eps: 1.0e-6
+
+  # 1D temporal bottleneck:
+  #   encoder: (B,640,16,T) -> reshape (B,10240,T) -> GroupNorm -> Conv1d(10240->64) -> ResBlocks -> (B,64,T)
+  #   decoder: (B,64,T) -> ResBlocks -> Conv1d(64->10240) -> reshape (B,640,16,T) -> GroupNorm -> 2D decoder
+  bottleneck_1d_channels: 64
+  bottleneck_1d_layers: 4
+  bottleneck_1d_kernel_size: 3
