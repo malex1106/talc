@@ -7,7 +7,9 @@ TALC encodes 44.1 kHz mono audio into a compact 1D latent sequence of **64 chann
 ~10.8 Hz** (a 64× reduction versus raw mono samples) and
 decodes it back to a waveform.
 
-This package contains inference code only.
+Check out [our project page](https://malex1106.github.io/talc/) for demo audio samples.
+
+<!--This package contains inference code only.-->
 
 ## Installation
 
