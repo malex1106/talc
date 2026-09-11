@@ -1,10 +1,10 @@
 # TALC
 
-**T**opology-**A**ware **L**atent **C**orruption — a fully convolutional audio autoencoder
+**Topology-Aware Latent Corruption** — a convolutional audio autoencoder
 operating on complex STFT representations.
 
 TALC encodes 44.1 kHz mono audio into a compact 1D latent sequence of **64 channels at
-~10.8 Hz** (a **~64×** reduction versus raw mono samples) and
+~10.8 Hz** (a 64× reduction versus raw mono samples) and
 decodes it back to a waveform.
 
 This package contains inference code only.
@@ -136,6 +136,7 @@ concatenated directly.
 Inference runs in bfloat16 by default, matching training. Latents are always returned in
 float32.
 
+<!--
 ## Citation
 
 ```bibtex
@@ -145,3 +146,4 @@ float32.
   year      = {2026},
 }
 ```
+-->
