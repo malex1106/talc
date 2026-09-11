@@ -136,6 +136,9 @@ concatenated directly.
 Inference runs in bfloat16 by default, matching training. Latents are always returned in
 float32.
 
+## License
+This library is released under the CC BY-NC 4.0 license. Please refer to the LICENSE file for more details.
+
 <!--
 ## Citation
 
