@@ -3,7 +3,7 @@
 **Topology-Aware Latent Corruption** — a convolutional audio autoencoder
 operating on complex STFT representations.
 
-TALC encodes 44.1 kHz mono audio into a compact 1D latent sequence of **64 channels at
+TALC encodes 44.1 kHz mono audio into a compact, ordered 1D latent sequence of **64 channels at
 ~10.8 Hz** (a 64× reduction versus raw mono samples) and
 decodes it back to a waveform.
 
@@ -55,9 +55,6 @@ during training. Select one with `variant`:
 | `"talc"` | Topology-aware channel-wise corruption (γ=2, w_min=0.1), t ~ U(0, 0.25) — the proposed model |
 | `"isotropic"` | Uniform across all latent dimensions, t ~ U(0, 0.1) |
 | `"baseline"` | None |
-
-Corruption was applied to 99% of training examples and is inactive at inference, so the
-three differ only in their weights.
 
 Weights live in a single Hub repo, [`malex1106/talc`](https://huggingface.co/malex1106/talc),
 and are downloaded and cached on first use (under `HF_HOME`, like any other Hub model):
@@ -131,15 +128,15 @@ WAV file when `output_path` is given.
 
 ## Notes
 
-Chunks are encoded with `n_fft // 2` samples of real audio context on each side, so the
-STFT sees true signal rather than zero padding at chunk edges. Decoded chunks are
-concatenated directly.
-
 Inference runs in bfloat16 by default, matching training. Latents are always returned in
 float32.
 
+If the paper is accepted, we will also provide the training code.
+
 ## License
 This library is released under the CC BY-NC 4.0 license. Please refer to the LICENSE file for more details.
+
+This work was conducted by Alexander Fichtinger during his PhD at the [Institute of Computational Perception](https://www.jku.at/en/institute-of-computational-perception/) at Johannes Kepler University Linz, Austria.
 
 <!--
 ## Citation
