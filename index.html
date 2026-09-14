@@ -200,7 +200,7 @@
           <div class="content has-text-justified">
             <p>
               Continuous audio autoencoders are increasingly used as shared latent spaces for reconstruction, generation, and music information retrieval (MIR). However, most continuous bottlenecks remain topologically unstructured: every latent channel is treated identically, so no channel acquires a defined role. 
-              This paper proposes \textbf{Topology-Aware Latent Corruption (TALC)}, which imposes an ordering by corrupting latents during autoencoder training, scaling the noise level per channel so that low-index channels carry important content at high reliability while high-index channels carry less important detail. In our experiments, isotropic latent corruption improves reconstruction substantially over an uncorrupted baseline, and TALC slightly outperforms the best isotropic model on SI-SDR while reducing latent correlation. When masking latents, its error curve stays flatter, so TALC retains most of its reconstruction quality from a subset of channels. Model weights are available under <a href="https://github.com/malex1106/talc">github.com/malex1106/talc</a>.
+              This paper proposes <b>Topology-Aware Latent Corruption (TALC)</b>, which imposes an ordering by corrupting latents during autoencoder training, scaling the noise level per channel so that low-index channels carry important content at high reliability while high-index channels carry less important detail. In our experiments, isotropic latent corruption improves reconstruction substantially over an uncorrupted baseline, and TALC slightly outperforms the best isotropic model on SI-SDR while reducing latent correlation. When masking latents, its error curve stays flatter, so TALC retains most of its reconstruction quality from a subset of channels. Model weights are available under <a href="https://github.com/malex1106/talc">github.com/malex1106/talc</a>.
             </p>
           </div>
         </div>
@@ -240,7 +240,7 @@
   <!-- Audio examples                                                       -->
   <!-- ==================================================================== -->
   <section class="section hero is-light" id="audio-examples">
-    <div class="container is-fluid audio-container">
+    <div class="container is-max-desktop audio-container">
       <h2 class="title is-3 has-text-centered">Audio Examples</h2>
       <div class="content has-text-centered audio-intro">
         <p>
@@ -356,7 +356,7 @@
   <!-- Latent truncation                                                    -->
   <!-- ==================================================================== -->
   <section class="section hero" id="latent-truncation">
-    <div class="container is-fluid audio-container">
+    <div class="container is-max-desktop audio-container">
       <h2 class="title is-3 has-text-centered">Latent Truncation</h2>
       <div class="content audio-intro trunc-intro">
         <p>

@@ -784,10 +784,18 @@ a:focus {
   color: #4a4a4a;
 }
 
-/* Let the table use the full viewport width, but keep it centred and off the
-   window edges on very wide screens. */
+/* Width comes from Bulma's is-max-desktop on the container itself (960 px, the
+   same as the abstract and architecture sections) — is-fluid forces
+   max-width:none !important, so the class has to be the one that sets it. The
+   value is repeated here for viewports below Bulma's desktop breakpoint. */
 .audio-container {
-  max-width: 1800px;
+  max-width: 960px;
+  /* The parent .section.hero is a flex container. Without a definite width the
+     container grows to the table's min-width, overflows the viewport on a
+     phone and is clipped by the section — taking the last columns out of reach
+     instead of letting .audio-table-container scroll. */
+  width: 100%;
+  min-width: 0;
   margin: 0 auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -1100,7 +1108,9 @@ a:focus {
   align-items: center;
   justify-content: center;
   width: 100%;
+  max-width: 5.5rem;
   height: 2.25rem;
+  margin: 0 auto;
   padding: 0;
   border: 1px solid var(--border-color);
   border-radius: 6px;
@@ -1194,9 +1204,22 @@ a:focus {
   white-space: normal;
 }
 
+/* Headers sit over centred buttons, so centre them too. The first column holds
+   the example or model name and stays left-aligned. */
+.audio-table.ab-enhanced thead th,
+.trunc-table.ab-enhanced thead th {
+  text-align: center;
+}
+
+.audio-table.ab-enhanced thead th:first-child,
+.trunc-table.ab-enhanced thead th:first-child {
+  text-align: left;
+}
+
 .trunc-original .ab-cell {
   flex: none;
-  width: 9rem;
+  width: 5.5rem;
+  margin: 0;
 }
 
 /* The example currently loaded in the dock. */

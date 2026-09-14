@@ -32,6 +32,12 @@
     var MIN_LOOP_SEC = 0.25;
     var WAVE_COLOR = '#94a3b8';
 
+    // Shortcut per system, in group order: the digit row, then the row below
+    // it. A truncation block has 13 files, so digits alone are not enough.
+    // None of these collide with the player's own keys (space, arrows, A, B,
+    // Esc, Home, ?), and each chip shows the key it answers to.
+    var KEYS = '1234567890qwertyuiop';
+
     var AudioCtx = window.AudioContext || window.webkitAudioContext;
     var MODE = (AudioCtx && window.fetch && window.AbortController &&
                 location.protocol !== 'file:') ? 'webaudio' : 'media';
@@ -726,7 +732,7 @@
             '<span><kbd>Space</kbd> play / pause</span>' +
             '<span><kbd>←</kbd> <kbd>→</kbd> ∓' + SKIP_SEC + ' s (<kbd>Shift</kbd> ∓' + FINE_SEC + ' s)</span>' +
             '<span><kbd>↑</kbd> <kbd>↓</kbd> previous / next system</span>' +
-            '<span><kbd>1</kbd>–<kbd>9</kbd> jump to system</span>' +
+            '<span><kbd>1</kbd>…<kbd>0</kbd> <kbd>Q</kbd>…<kbd>P</kbd> jump to system</span>' +
             '<span><kbd>A</kbd> <kbd>B</kbd> loop start / end</span>' +
             '<span><kbd>Esc</kbd> clear loop</span>' +
             '<span><kbd>Home</kbd> back to start</span>';
@@ -813,10 +819,10 @@
             chip.title = src.label;
             chip.setAttribute('aria-label', src.label);
             chip.setAttribute('aria-pressed', 'false');
-            if (i < 9) {
+            if (i < KEYS.length) {
                 var key = document.createElement('span');
                 key.className = 'ab-key';
-                key.textContent = String(i + 1);
+                key.textContent = KEYS[i].toUpperCase();
                 chip.appendChild(key);
             }
             chip.appendChild(document.createTextNode(src.row ? shortLevel(src.col) : src.label));
@@ -1046,8 +1052,8 @@
                 break;
             case '?': toggleHelp(); break;
             default:
-                if (/^[1-9]$/.test(e.key) && Number(e.key) <= state.group.sources.length) {
-                    var i = Number(e.key) - 1;
+                var i = e.key.length === 1 ? KEYS.indexOf(e.key.toLowerCase()) : -1;
+                if (i >= 0 && i < state.group.sources.length) {
                     if (i !== state.index) select(state.group, i, false);
                 } else {
                     handled = false;
