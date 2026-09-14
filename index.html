@@ -68,9 +68,6 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- KaTeX: renders LaTeX in captions and body text. Write math as $...$ or
-       \(...\) inline, $$...$$ or \[...\] displayed. Version is pinned so a CDN
-       update cannot silently change how the page renders. -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -122,10 +119,6 @@
               Can Noise Order Audio Autoencoder Latents?
             </h1>
 
-            <!-- Affiliations are numbered; an author with more than one lists
-                 them comma-separated, e.g. <sup>1,2</sup>. Keep the numbering in
-                 sync with the affiliation list below. The equal-contribution
-                 marker goes in the same <sup>, after the numbers. -->
             <div class="is-size-5 publication-authors">
               <span class="author-block">
                 <a href="https://www.jku.at/en/institute-of-computational-perception/about-us/people/alexander-fichtinger/" target="_blank">Alexander Fichtinger</a><sup>1</sup>,</span>
@@ -392,9 +385,7 @@
         </p>
       </div>
 
-      <!-- Qualitative findings. Hand-written prose — the generator only
-           rewrites between the TRUNCATION_START / TRUNCATION_END markers
-           below, so nothing here is overwritten when the audio is re-rendered. -->
+      <!-- Qualitative findings. -->
       <div class="trunc-findings content">
         <h3 class="title is-5">What to listen for</h3>
         <p>
@@ -402,7 +393,7 @@
           without latent corruption, the baseline distributes information across
           all channels with no ordering, so removing any of them destroys the
           representation rather than coarsening it. The decoder no longer produces
-          anything recognisable as music &mdash; the output is noise, not a
+          anything recognisable as music - the output is noise, not a
           degraded version of the input.
         </p>
         <p>
@@ -415,7 +406,7 @@
           <strong>TALC.</strong> The topology-aware noise schedule concentrates
           information in the low-noise channels, which are exactly the ones
           truncation keeps. At the same truncation level TALC is consistently
-          cleaner than the isotropic model &mdash; fewer artifacts, and a result
+          cleaner than the isotropic model - fewer artifacts, and a result
           that sounds more like real audio rather than a reconstruction fighting
           to stay coherent.
         </p>
